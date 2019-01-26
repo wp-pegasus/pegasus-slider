@@ -36,6 +36,17 @@ function pg_slider_deactivation() {
 register_deactivation_hook( __FILE__, 'pg_slider_deactivation' );
 
 require_once 'PGSliderSetUpAssets.php';
-new PGSliderSetUpAssets();
+new PGSliderSetUpAssets;
+
 require_once 'PGSlider.php';
-new PGSlider();
+new PGSlider;
+
+require_once 'PGSliderPostType.php';
+new PGSliderPostType;
+
+require_once 'PGSliderCustomFields.php';
+new PGSliderCustomFields;
+
+require_once 'PGSliderManager.php';
+(new PGSliderManager)->saveSlides();
+

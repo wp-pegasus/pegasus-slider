@@ -4,8 +4,8 @@
 class PGSliderSetUpAssets {
 
 	public function __construct() {
-		add_action('wp_enqueue_scripts', ['PGSliderSetUpAssets', 'pg_slider_load_scripts']);
-		add_action('wp_enqueue_scripts', ['PGSliderSetUpAssets', 'pg_slider_load_styles']);
+		add_action('wp_enqueue_scripts', [self::class, 'pg_slider_load_scripts']);
+		add_action('wp_enqueue_scripts', [self::class, 'pg_slider_load_styles']);
 	}
 
 	public function pg_slider_load_scripts() {
