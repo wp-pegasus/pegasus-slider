@@ -3,7 +3,7 @@
 
 class PGSlider {
 
-	public function __construct() {
+	public function play() {
 		add_shortcode("pg_slider", [self::class, "pg_slider_display"]);
 		add_shortcode("pg_dynamic_slider", [self::class, "pg_dynamic_slider_display"]);
 	}
@@ -18,7 +18,7 @@ class PGSlider {
 		</div>';
 	}
 
-	public function pg_dynamic_slider_display($attr, $value){
+	public function pg_dynamic_slider_display($attr, $content){
 		extract(shortcode_atts(['id' => ''], $attr));
 		$pg_slider_images = get_post_meta($id, "_pg_gallery_images", true);
 		$pg_slider_images = ($pg_slider_images != '') ? json_decode($pg_slider_images) : [];

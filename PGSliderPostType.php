@@ -3,7 +3,7 @@
 
 class PGSliderPostType {
 
-	public function __construct() {
+	public function register() {
 		add_action('init', [self::class, 'build_post']);
 	}
 

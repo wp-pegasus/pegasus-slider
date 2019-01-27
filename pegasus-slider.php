@@ -36,17 +36,26 @@ function pg_slider_deactivation() {
 register_deactivation_hook( __FILE__, 'pg_slider_deactivation' );
 
 require_once 'PGSliderSetUpAssets.php';
-new PGSliderSetUpAssets;
+$assetLoader = new PGSliderSetUpAssets;
+$assetLoader->addScripts();
+$assetLoader->addStyles();
 
 require_once 'PGSlider.php';
-new PGSlider;
+(new PGSlider)->play();
 
 require_once 'PGSliderPostType.php';
-new PGSliderPostType;
+$customPost = new PGSliderPostType;
+$customPost->register();
 
 require_once 'PGSliderCustomFields.php';
-new PGSliderCustomFields;
+$customElements = new PGSliderCustomFields;
+$customElements->addColumn();
+$customElements->addMetaBox();
 
 require_once 'PGSliderManager.php';
 (new PGSliderManager)->saveSlides();
+
+require_once 'PGSliderSettings.php';
+$settings = new PGSliderSettings();
+$settings->addMenu();
 
