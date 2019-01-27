@@ -4,8 +4,12 @@
 
 jQuery(function() {
     jQuery('.main-carousel').flickity({
-        cellAlign: 'left',
-        contain: true
+        cellAlign: option.cellAlign,
+        contain: option.contain,
+        autoPlay: option.autoPlay,
+        pauseAutoPlayOnHover: option.pauseAutoPlayOnHover,
+        adaptiveHeight: option.adaptiveHeight,
+        groupCells: option.groupCells,
+        draggable: option.draggable
     });
 });
-
