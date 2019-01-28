@@ -4,12 +4,12 @@
 class PGSliderManager {
 
 	public function saveSlides() {
-		add_action('save_post', [self::class, 'pg_save_slide_info']);
+		add_action('save_post', [$this, 'pg_save_slide_info']);
 	}
 
 	public function pg_save_slide_info($post_id) {
 		// verify nonce
-		if (!wp_verify_nonce($_POST['pg_slider_box_nonce'], basename(__FILE__))) {
+		if (!wp_verify_nonce($_POST['pg_slider_box_nonce'], 'gallery_nonce')) {
 			print_r('failed nounce');
 			return $post_id;
 		}

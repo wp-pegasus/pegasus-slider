@@ -4,8 +4,8 @@
 class PGSlider {
 
 	public function play() {
-		add_shortcode("pg_slider", [self::class, "pg_slider_display"]);
-		add_shortcode("pg_dynamic_slider", [self::class, "pg_dynamic_slider_display"]);
+		add_shortcode("pg_slider", [$this, "pg_slider_display"]);
+		add_shortcode("pg_dynamic_slider", [$this, "pg_dynamic_slider_display"]);
 	}
 
 	public function pg_slider_display(){

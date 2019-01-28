@@ -3,18 +3,18 @@
 class PGSliderCustomFields{
 
 	public function addMetaBox() {
-		add_action('add_meta_boxes', [self::class, 'pg_slider_meta_box']);
+		add_action('add_meta_boxes', [$this, 'pg_slider_meta_box']);
 	}
 
 	public function addColumn() {
-		add_filter('manage_edit-pg_slider_columns', [self::class, 'pg_set_custom_edit_slider_columns']);
-		add_action('manage_pg_slider_posts_custom_column', [self::class, 'pg_custom_slider_column'], 10, 2);
+		add_filter('manage_edit-pg_slider_columns', [$this, 'pg_set_custom_edit_slider_columns']);
+		add_action('manage_pg_slider_posts_custom_column', [$this, 'pg_custom_slider_column'], 10, 2);
 	}
 
 	public function pg_slider_meta_box() {
 		add_meta_box(
 			"pg-slider-images",
-			"Slider Images", [self::class, 'pg_view_slider_images_box'], "pg_slider", "normal"
+			"Slider Images", [$this, 'pg_view_slider_images_box'], "pg_slider", "normal"
 		);
 	}
 
@@ -23,7 +23,7 @@ class PGSliderCustomFields{
 		$slider_images = get_post_meta($post->ID, "_pg_gallery_images", true);
 		$slider_images = ($slider_images != '') ? json_decode($slider_images) : [];
 		// Use nonce for verification
-		$html = '<input type="hidden" name="pg_slider_box_nonce" value="' . wp_create_nonce(basename(__FILE__)) . '" />';
+		$html = '<input type="hidden" name="pg_slider_box_nonce" value="' . wp_create_nonce('gallery_nonce') . '" />';
 
 		$html .= '<table class="form-table">';
 

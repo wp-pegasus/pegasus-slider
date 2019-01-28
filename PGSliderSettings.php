@@ -4,12 +4,12 @@
 class PGSliderSettings {
 
 	public function addMenu(){
-		add_action('admin_menu', [self::class, 'pg_plugin_settings']);
+		add_action('admin_menu', [$this, 'pg_plugin_settings']);
 	}
 
 	public function pg_plugin_settings() {
 		//create a new top-level menu
-		add_menu_page('Pegasus Slider Settings', 'Pegasus Slider Settings', 'administrator', 'pg_settings', [self::class, 'pg_display_settings']);
+		add_menu_page('Pegasus Slider Settings', 'Pegasus Slider Settings', 'administrator', 'pg_settings', [$this, 'pg_display_settings']);
 	}
 
 	public function pg_display_settings() {
