@@ -1,12 +1,16 @@
 <?php
 
-class PGSliderCustomFields{
 
-	public function addMetaBox() {
+/**
+ * Class PG_Slider_Custom_Fields
+ */
+class PG_Slider_Custom_Fields{
+
+	public function add_meta_box() {
 		add_action('add_meta_boxes', [$this, 'pg_slider_meta_box']);
 	}
 
-	public function addColumn() {
+	public function add_column() {
 		add_filter('manage_edit-pg_slider_columns', [$this, 'pg_set_custom_edit_slider_columns']);
 		add_action('manage_pg_slider_posts_custom_column', [$this, 'pg_custom_slider_column'], 10, 2);
 	}

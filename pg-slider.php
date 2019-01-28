@@ -1,7 +1,10 @@
 <?php
 
 
-class PGSlider {
+/**
+ * Class PG_Slider
+ */
+class PG_Slider {
 
 	public function play() {
 		add_shortcode("pg_slider", [$this, "pg_slider_display"]);

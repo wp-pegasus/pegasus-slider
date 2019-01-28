@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Plugin Name: Pegasus JQuery Slider
- * Description: Simple JQuery slider
- * Plugin URI: https://devscreencast.com
+ * Plugin Name: Pegasus Flickity Slider
+ * Description: Easy to use Flickity slider for wordpress, create multiple sliders and add to as many places as needed.
+ * Plugin URI: https://github.com/wp-pegasus/pegasus-slider
  * Author: Pegasus
  * Author URI: http://github.com/terdia
  * Version: 1.0
@@ -35,27 +35,27 @@ function pg_slider_deactivation() {
 }
 register_deactivation_hook( __FILE__, 'pg_slider_deactivation' );
 
-require_once 'PGSliderSetUpAssets.php';
-$assetLoader = new PGSliderSetUpAssets;
-$assetLoader->addScripts();
-$assetLoader->addStyles();
+require_once 'pg-slider-assets.php';
+$asset_loader = new PG_Slider_Assets;
+$asset_loader->add_scripts();
+$asset_loader->add_styles();
 
-require_once 'PGSlider.php';
-(new PGSlider)->play();
+require_once 'pg-slider.php';
+(new PG_Slider)->play();
 
-require_once 'PGSliderPostType.php';
-$customPost = new PGSliderPostType;
-$customPost->register();
+require_once 'pg-slider-post-type.php';
+$custom_post = new PG_Slider_Post_Type;
+$custom_post->register();
 
-require_once 'PGSliderCustomFields.php';
-$customElements = new PGSliderCustomFields;
-$customElements->addColumn();
-$customElements->addMetaBox();
+require_once 'pg-slider-custom-fields.php';
+$custom_elements = new PG_Slider_Custom_Fields;
+$custom_elements->add_column();
+$custom_elements->add_meta_box();
 
-require_once 'PGSliderManager.php';
-(new PGSliderManager)->saveSlides();
+require_once 'pg-slider-services.php';
+(new PG_Slider_Service)->save_slides();
 
-require_once 'PGSliderSettings.php';
-$settings = new PGSliderSettings();
-$settings->addMenu();
+require_once 'pg-slider-settings.php';
+$settings = new PG_Slider_Settings();
+$settings->add_menu();
 

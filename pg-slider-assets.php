@@ -1,13 +1,16 @@
 <?php
 
 
-class PGSliderSetUpAssets {
+/**
+ * Class PG_Slider_Assets
+ */
+class PG_Slider_Assets {
 
-    public function addScripts(){
+    public function add_scripts(){
         add_action('wp_enqueue_scripts', [$this, 'pg_slider_load_scripts']);
     }
 
-    public function addStyles(){
+    public function add_styles(){
         add_action('wp_enqueue_scripts', [$this, 'pg_slider_load_styles']);
     }
 

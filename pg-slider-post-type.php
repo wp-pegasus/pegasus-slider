@@ -1,7 +1,10 @@
 <?php
 
 
-class PGSliderPostType {
+/**
+ * Class PG_Slider_Post_Type
+ */
+class PG_Slider_Post_Type {
 
 	public function register() {
 		add_action('init', [$this, 'build_post']);

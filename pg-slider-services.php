@@ -1,9 +1,12 @@
 <?php
 
 
-class PGSliderManager {
+/**
+ * Class PG_Slider_Service
+ */
+class PG_Slider_Service {
 
-	public function saveSlides() {
+	public function save_slides() {
 		add_action('save_post', [$this, 'pg_save_slide_info']);
 	}
 

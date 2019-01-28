@@ -1,9 +1,12 @@
 <?php
 
 
-class PGSliderSettings {
+/**
+ * Class PG_Slider_Settings
+ */
+class PG_Slider_Settings {
 
-	public function addMenu(){
+	public function add_menu(){
 		add_action('admin_menu', [$this, 'pg_plugin_settings']);
 	}
 
